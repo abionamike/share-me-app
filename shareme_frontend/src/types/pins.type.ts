@@ -1,6 +1,8 @@
+import { User } from "./user.type";
+
 export interface PinInterface {
   _id: string,
-  destinaiton: string,
+  destination: string,
   image: {
     asset: {
       url: string
@@ -11,5 +13,5 @@ export interface PinInterface {
     userName: string,
     image: string,
   },
-  save: any,
+  save: { postedBy: User, userId: string }[] | null,
 }

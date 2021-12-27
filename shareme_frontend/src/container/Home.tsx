@@ -8,14 +8,13 @@ import Logo from '../assets/logo.png'
 import { userQuery } from "../utils/data";
 import Pins from "./Pins";
 import { User } from "../types/user.type";
+import { userInfo } from "../utils/fetchUser";
 
 const Home = () => {
   const [toggleSidbar, setToggleSidbar] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  const userInfo = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') || '') : localStorage.clear();
 
   useEffect(() => {
     const query = userQuery(userInfo?.googleId);
