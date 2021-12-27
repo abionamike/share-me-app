@@ -16,7 +16,7 @@ const categories = [
   { name: 'Coding' },
   { name: 'Other' },
 ]
-
+ 
 const Sidebar = ({ user, closeToggle }: { user: User | null, closeToggle: Dispatch<SetStateAction<boolean>> }) => {
   const handleCloseSidebar = () => {
     closeToggle && closeToggle(false);
@@ -42,6 +42,13 @@ const Sidebar = ({ user, closeToggle }: { user: User | null, closeToggle: Dispat
           ))}
         </div>
       </div>
+
+      {user && (
+        <Link to={`/user-profile/${user?._id}`} className="flex my-5 mb-3 gap-2 items-center rounded-lg bg-white shadow-lg mx-3" onClick={handleCloseSidebar}>
+          <img src={user?.image} className="w-10 h-10 rounded-full" alt="user-profile" />
+          <p>{user.userName}</p>
+        </Link>
+      )}
     </div>
   )
 }
