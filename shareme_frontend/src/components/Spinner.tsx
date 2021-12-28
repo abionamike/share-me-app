@@ -1,6 +1,6 @@
 import Loader from "react-loader-spinner"
 
-const Spinner = ({ message }: { message: string }) => {
+const Spinner = ({ message }: { message?: string }) => {
   
   return (
     <div className="flex flex-col justify-center items-center w-full h-full p-5">
