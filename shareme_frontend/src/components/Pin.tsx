@@ -56,14 +56,14 @@ const Pin = ({ pin: { postedBy, _id, image, destination, save }, className }: { 
           <div className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pb-2 pt-2 z-50" style={{ height: '100%' }}>  
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
-                <Link 
-                  to={`/${image.asset.url}`} 
+                <a 
+                  href={`/${image.asset.url}`} 
                   download 
                   onClick={(e) => e.stopPropagation()} 
                   className="bg-white w-9 h-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none"
                 >
                   <MdDownloadForOffline />
-                </Link>
+                </a>
               </div>
 
               {alreadySaved ? (
@@ -87,9 +87,9 @@ const Pin = ({ pin: { postedBy, _id, image, destination, save }, className }: { 
             </div>
             <div className="flex justify-between items-center gap-2 w-full">
               {destination && (
-                <Link to={`/${destination}`} target={'_blank'} rel="noreferer" className="flex bg-white items-center gap-2 p-2 px-4 font-bold text-black rounded-full opacity-70 hover:opacity-100 hover:shadow-md">
+                <a onClick={(e) => e.stopPropagation()} href={destination} target="_blank" rel="noopener noreferrer" className="flex bg-white items-center gap-2 p-2 px-4 font-bold text-black rounded-full opacity-70 hover:opacity-100 hover:shadow-md">
                   <BsFillArrowUpCircleFill /> {destination.length > 20 ? destination.slice(8, 20) : destination.slice(8)}
-                </Link>
+                </a>
               )}
               {postedBy._id === userInfo.googleId && (
                 <button
