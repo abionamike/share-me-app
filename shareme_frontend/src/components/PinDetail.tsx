@@ -3,7 +3,7 @@ import { MdDownloadForOffline } from 'react-icons/md'
 import { Link, useParams } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 import { client, urlFor } from "../client"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import MasonryLayout from "./MasonryLayout"
 import { pinDetailMorePinQuery, pinDetailQuery } from "../utils/data"
 import Spinner from "./Spinner"
@@ -17,7 +17,7 @@ const PinDetail = ({ user }: { user: User | null }) => {
 
   const { pinId } = useParams();
   
-  const fetchPinDetails = () => {
+  const fetchPinDetails = useCallback(() => {
     let query = pinId && pinDetailQuery(pinId);
     
     if(query) {
@@ -33,7 +33,7 @@ const PinDetail = ({ user }: { user: User | null }) => {
         }
       })
     }
-  }
+  }, [pinId]);
 
   const addComment = () => {
     if(comment && pinId) {
@@ -61,7 +61,7 @@ const PinDetail = ({ user }: { user: User | null }) => {
 
   useEffect(() => {
     fetchPinDetails();
-  }, [pinId]);
+  }, [pinId, fetchPinDetails]);
   
   if(!pinDetail) return <Spinner message="Loading pin..." />
 
