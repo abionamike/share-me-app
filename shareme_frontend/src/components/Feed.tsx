@@ -2,13 +2,14 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { client } from "../client"
 import Pins from "../container/Pins";
+import { PinInterface } from "../types/pins.type";
 import { feedQuery, searchQuery } from "../utils/data";
 import MasonryLayout from "./MasonryLayout";
 import Spinner from "./Spinner";
 
 const Feed = () => {
   const [loading, setLoading] = useState(false);
-  const [pins, setPins] = useState(null)
+  const [pins, setPins] = useState<PinInterface[] | null>(null)
   const { categoryId } = useParams(); 
 
   useEffect(() => {
@@ -33,9 +34,10 @@ const Feed = () => {
 
   if(loading) return <Spinner message="We are adding new ideas to your feed!" />
 
+  if(!pins?.length) return <h2>No pins available</h2>
+
   return (
     <div>
-      {/* Feed */}
       {pins && <MasonryLayout pins={pins} />}
     </div>
   )

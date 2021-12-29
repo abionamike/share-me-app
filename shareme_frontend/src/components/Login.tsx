@@ -1,4 +1,4 @@
-import GoodleLogin from 'react-google-login';
+import GoogleLogin from 'react-google-login';
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import ShareVideo from '../assets/share.mp4'
@@ -45,7 +45,7 @@ const Login = () => {
         </div>
 
         <div className="shadow-2xl">
-          <GoodleLogin 
+          <GoogleLogin 
             clientId={process.env.REACT_APP_GOOGLE_API_TOKEN || ''}
             render={(renderProps) => (
               <button 
