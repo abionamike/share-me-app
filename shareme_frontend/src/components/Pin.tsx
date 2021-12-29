@@ -1,11 +1,11 @@
-import { useCallback, useState } from "react"
+import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { urlFor, client } from "../client"
 import { PinInterface } from "../types/pins.type"
 import { v4 as uuidv4 } from 'uuid'
 import { MdDownloadForOffline } from 'react-icons/md'
 import { AiTwotoneDelete } from 'react-icons/ai'
-import { BsFillArrowUpCircleFill, BsFillArrowUpRightCircleFill } from 'react-icons/bs'
+import { BsFillArrowUpCircleFill } from 'react-icons/bs'
 import { userInfo } from "../utils/fetchUser"
 
 const Pin = ({ pin: { postedBy, _id, image, destination, save }, className }: { pin: PinInterface, className: string }) => {

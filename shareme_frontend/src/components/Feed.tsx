@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { client } from "../client"
-import Pins from "../container/Pins";
 import { PinInterface } from "../types/pins.type";
 import { feedQuery, searchQuery } from "../utils/data";
 import MasonryLayout from "./MasonryLayout";

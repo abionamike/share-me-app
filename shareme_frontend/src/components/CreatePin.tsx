@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, useState } from "react"
+import { ChangeEvent, useState } from "react"
 import { User } from "../types/user.type"
 import { AiOutlineCloudUpload } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'

@@ -2,7 +2,6 @@ import { Dispatch, SetStateAction } from "react";
 import { User } from "../types/user.type";
 import { Link, NavLink } from 'react-router-dom';
 import { RiHomeFill } from 'react-icons/ri';
-import { IoIosArrowForward } from 'react-icons/io';
 import logo from '../assets/logo.png';
 import { categories } from "../utils/data";
 
