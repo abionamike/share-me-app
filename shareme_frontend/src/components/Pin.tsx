@@ -88,7 +88,7 @@ const Pin = ({ pin: { postedBy, _id, image, destination, save }, className }: { 
             <div className="flex justify-between items-center gap-2 w-full">
               {destination && (
                 <a onClick={(e) => e.stopPropagation()} href={destination} target="_blank" rel="noopener noreferrer" className="flex bg-white items-center gap-2 p-2 px-4 font-bold text-black rounded-full opacity-70 hover:opacity-100 hover:shadow-md">
-                  <BsFillArrowUpCircleFill /> {destination.length > 20 ? destination.slice(8, 20) : destination.slice(8)}
+                  <BsFillArrowUpCircleFill /> {destination.length > 15 ? `${destination.slice(0, 15)}...` : destination}
                 </a>
               )}
               {postedBy._id === userInfo.googleId && (
