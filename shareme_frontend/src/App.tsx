@@ -1,16 +1,21 @@
-import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Login from './components/Login';
 import Home from './container/Home';
+import { userInfo } from './utils/fetchUser';
 
-function App() {
+const App = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!userInfo) navigate('/login');
+  }, []);
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/*" element={<Home />} />
     </Routes>
-    // <h1 className="text-3xl font-bold">
-    //   Hello world!
-    // </h1>
   );
 }
 

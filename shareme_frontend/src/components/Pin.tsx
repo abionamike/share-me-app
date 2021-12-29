@@ -13,7 +13,7 @@ const Pin = ({ pin: { postedBy, _id, image, destination, save }, className }: { 
 
   const [postHovered, setPostHovered] = useState(false);
 
-  const alreadySaved = !!(save?.filter((item) => item.postedBy?._id === userInfo.googleId))?.length;
+  const alreadySaved = !!(save?.filter((item) => item.postedBy?._id === userInfo?.googleId))?.length;
 
   const savePin = (id: string) => {
     if(!alreadySaved) {
@@ -22,10 +22,10 @@ const Pin = ({ pin: { postedBy, _id, image, destination, save }, className }: { 
         .setIfMissing({ save: [] })
         .insert('after', 'save[-1]', [{
           _key: uuidv4(),
-          userId: userInfo.googleId,
+          userId: userInfo?.googleId,
           postedBy: {
             _type: postedBy,
-            _ref: userInfo.googleId
+            _ref: userInfo?.googleId
           }
         }])
         .commit()
@@ -91,7 +91,7 @@ const Pin = ({ pin: { postedBy, _id, image, destination, save }, className }: { 
                   <BsFillArrowUpCircleFill /> {destination.length > 15 ? `${destination.slice(0, 15)}...` : destination}
                 </a>
               )}
-              {postedBy._id === userInfo.googleId && (
+              {postedBy._id === userInfo?.googleId && (
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
